@@ -1,0 +1,82 @@
+@use "./typography";
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "TitilliumWeb";
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+
+  @include tablet {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+body {
+  font-family: "TitilliumWeb";
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: $primary-dark;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3,
+button,
+label,
+a {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+h4 {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: $secondary-dark;
+
+  @include tablet {
+    font-size: 0.8rem;
+    line-height: 1.13rem;
+  }
+}
+
+input {
+  font-family: "TitilliumWeb";
+}

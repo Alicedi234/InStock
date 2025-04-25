@@ -1,0 +1,133 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.warehouse {
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.25rem rgba($background-dark, 0.1);
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  transform: translateY(-4.5rem);
+  word-wrap: break-word;
+  @include body-medium;
+
+  @include tablet {
+    transform: translateY(-5.5625rem);
+  }
+
+  @include desktop {
+    max-width: 76rem;
+  }
+
+  &__top {
+    @include container;
+    @include flex-full(row, space-between, center);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.0625rem solid $secondary-light;
+
+    @include tablet {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__heading {
+    @include flex-full(row, center, center);
+    gap: 0.5rem;
+  }
+
+  &__link {
+    line-height: 0;
+    @include flex-position(center, center);
+    gap: 0.25rem;
+  }
+
+  &__button {
+    @include edit-button;
+  }
+
+  &__button-text {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      color: $primary-light;
+    }
+  }
+
+  &__back-icon {
+    fill: $primary-mid;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  &__edit-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    fill: white;
+  }
+
+  &__bottom {
+    @include container;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.0625rem solid $secondary-light;
+
+    @include tablet {
+      @include flex-orientation(row);
+      padding-top: 1.5rem;
+      border-bottom: none;
+    }
+  }
+
+  &__address {
+    @include tablet {
+      width: 33%;
+      border-right: 0.0625rem solid $secondary-light;
+    }
+  }
+
+  &__contact {
+    @include flex-orientation(row);
+    padding-top: 1rem;
+    gap: 1rem;
+
+    @include tablet {
+      padding-top: 0;
+      padding-left: 2rem;
+      width: 56%;
+    }
+  }
+
+  &__info {
+    width: 50%;
+  }
+
+  &__title {
+    @include body-small;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    color: $secondary-dark;
+    text-transform: uppercase;
+
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__text {
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: flex;
+      }
+    }
+  }
+}

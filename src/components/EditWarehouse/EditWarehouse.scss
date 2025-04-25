@@ -1,0 +1,190 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.main {
+  flex-direction: column;
+  background-color: $background-light;
+}
+
+.form {
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.25rem rgba($background-dark, 0.1);
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  transform: translateY(-4.5rem);
+  margin-bottom: -55px;
+
+  @include desktop {
+    max-width: 1200px;
+  }
+
+  &__container1 {
+    @include flex(row, flex-start, flex-start, nowrap);
+    gap: .3125rem;
+    height: auto;
+    padding: 2rem 0;
+    padding-left: 1rem;
+    border-bottom: .0625rem solid $secondary-light;
+
+    @include tablet {
+      @include flex-full(row, flex-start, center);
+      padding: 1rem 1rem;
+    }
+
+    &--title {
+      @include tablet {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__container2 {
+    padding: 32px;
+    @include flex(column, flex-start, stretch, wrap);
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+      padding: 0 2rem;
+      border-bottom: none;
+      min-height: 18rem;
+    }
+
+    &--top {
+      border-bottom: 1px solid $secondary-light;
+
+      @include tablet {
+        border-bottom: none;
+      }
+    }
+
+    &--title {
+      padding-bottom: 16px;
+    }
+
+    &--bottom {
+      @include tablet {
+        border-left: 1px solid $secondary-light;
+      }
+    }
+
+    &--label {
+      padding-bottom: 0.5rem;
+      padding-top: 1rem;
+      font-weight: 600;
+    }
+
+    &--input {
+      width: 100%;
+      border-radius: 20px;
+      height: 36px;
+      border: 1px solid $secondary-light;
+      padding: 0 16px;
+      margin-bottom: 0.3rem;
+      outline: none;
+
+      &:focus {
+        border: 1px solid $primary-mid;
+        outline: none;
+      }
+
+      &--invalid {
+        border: 1px solid $supporting-negative;
+      }
+    }
+  }
+
+  &__container4 {
+    padding: 0 1rem;
+    background-color: $background-light;
+    height: 90px;
+    @include flex(row, center, center, nowrap);
+
+    @include tablet {
+      margin-top: 2rem;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button1 {
+    width: 100%;
+    border: 1px solid $secondary-light;
+    border-radius: 20px;
+    padding: 8px 21px;
+    color: $secondary-light;
+    background-color: #ffffff;
+
+    &:hover {
+      color: $primary-mid;
+      border: 1px solid $primary-mid;
+    }
+  }
+
+  &__button2 {
+    color: #ffffff;
+    background-color: $primary-mid;
+    border: 1px solid $secondary-light;
+    border-radius: 20px;
+    padding: 8px 21px;
+    margin-right: 16px;
+    width: 50%;
+
+    @include tablet {
+      width: auto;
+    }
+
+    &:hover {
+      background-color: $background-dark;
+    }
+  }
+
+  &__container3 {
+    @include tablet {
+      @include flex(row, space-around, center, nowrap);
+      padding-top: 2rem;
+    }
+  }
+
+  &__link {
+    line-height: 0;
+    width: 50%;
+    margin-right: 1rem;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+}
+
+.form__container2--no-border {
+  border-bottom: none;
+
+  @include tablet {
+    border-bottom: 1px solid $secondary-light;
+  }
+}
+
+.edit-inv-form {
+  &__required {
+    @include flex-position(flex-start, center);
+    color: $supporting-negative;
+    @include body-medium;
+    margin-bottom: 0.6rem;
+  }
+
+  &__error {
+    height: 1rem;
+    width: 1rem;
+    fill: $supporting-negative;
+    margin-right: 0.25rem;
+  }
+}

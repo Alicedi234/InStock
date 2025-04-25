@@ -1,0 +1,199 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+
+.add-ware-form {
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.25rem rgba($background-dark, 0.1);
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  transform: translateY(-4.5rem);
+  margin-bottom: -3.4375rem;
+
+  @include desktop {
+    max-width: 75rem;
+  }
+
+  &__heading {
+    @include flex(row, flex-start, flex-start, nowrap);
+    gap: .3125rem;
+    height: auto;
+    padding: 2rem 0;
+    padding-left: 1rem;
+    border-bottom: .0625rem solid $secondary-light;
+
+    @include tablet {
+      @include flex-full(row, flex-start, center);
+      padding: 1rem 1rem;
+    }
+  }
+
+  &__title {
+    @include tablet {
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__container2 {
+    padding: 0 2rem;
+    border-bottom: .0625rem solid $secondary-light;
+    padding-bottom: 2rem;
+    @include flex(column, flex-start, stretch, wrap);
+    min-height: 20rem;
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+      border-bottom: none;
+      padding-bottom: 0;
+      min-height: 23rem;
+    }
+
+    &--label {
+      padding-bottom: .5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    &--title {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+
+      @include tablet {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &--input {
+      width: 100%;
+      border-radius: 1.25rem;
+      height: 2.25rem;
+      border: .0625rem solid $secondary-light;
+      padding: 0 1rem;
+
+      &::placeholder {
+        font-family: "TitilliumWeb";
+      }
+
+      &:focus {
+        border: .0625rem solid $primary-mid;
+        outline: none;
+      }
+
+      &--invalid {
+        border: .0625rem solid $supporting-negative;
+      }
+    }
+  }
+
+  &__buttons {
+    background-color: $background-light;
+    height: 5.625rem;
+    padding: 0 2rem;
+    width: 100%;
+    @include flex(row, center, center, nowrap);
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__cancel {
+    border: .0625rem solid $secondary-light;
+    border-radius: 1.25rem;
+    padding: .5rem 0;
+    color: $primary-light;
+    background-color: $primary-mid;
+    width: 100%;
+
+    @include tablet {
+      width: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+
+  &__add {
+    color: $secondary-dark;
+    background-color: $primary-light;
+    border: .0625rem solid $secondary-light;
+    border-radius: 1.25rem;
+    padding: .5rem 0;
+    width: 100%;
+
+    @include tablet {
+      width: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    &:hover {
+      border-color: $primary-mid;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    line-height: 0;
+    margin-right: 1rem;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__container3 {
+    @include tablet {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      @include flex(row, space-around, center, nowrap);
+    }
+  }
+
+  &__required {
+    @include flex-position(flex-start, center);
+    color: $supporting-negative;
+    @include body-medium;
+  }
+
+  &__error {
+    height: 1rem;
+    width: 1rem;
+    fill: $supporting-negative;
+    margin-right: 0.25rem;
+  }
+}
+
+// .add-ware-form__container2--no-border {
+//   @include tablet {
+//     border-left: .0625rem solid $secondary-light;
+//   }
+
+//   border-bottom: none;
+// }
+
+.invalid {
+  border: .0625rem solid $supporting-negative;
+}
+
+.no-border {
+  @include tablet {
+    border-left: .0625rem solid $secondary-light;
+  }
+
+  border-bottom: none;
+}

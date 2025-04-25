@@ -1,0 +1,61 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.header {
+  background-color: $background-dark;
+  width: 100%;
+  padding-top: 2rem;
+  height: 13.5rem;
+
+  @include tablet {
+    height: 11.5rem;
+  }
+
+  &__container {
+    @include flex-position(center, center);
+    flex-direction: column;
+    @include container;
+
+    padding: 0rem 1rem;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 1.5rem;
+    gap: 1rem;
+
+    @include tablet {
+      padding-top: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    width: 50%;
+    border: none;
+    background-color: transparent;
+    color: $secondary-light;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 0.0625rem;
+      text-decoration-color: $primary-light;
+      color: $primary-light;
+    }
+
+    @include tablet {
+      width: 6rem;
+    }
+
+    &--active {
+      color: $primary-light;
+      background-color: $primary-dark;
+    }
+  }
+}

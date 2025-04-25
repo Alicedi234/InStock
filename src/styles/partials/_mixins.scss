@@ -1,0 +1,253 @@
+@use "./typography";
+@use "./variables" as *;
+
+//font
+@mixin table-header {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: $secondary-dark;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 0.8rem;
+    line-height: 1.13rem;
+  }
+}
+
+@mixin body-large {
+  font-size: 0.95rem;
+  line-height: 1.65rem;
+
+  @include tablet {
+    font-size: size 1.05rem;
+    line-height: 1.8rem;
+  }
+}
+
+@mixin body-medium {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+@mixin body-small {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+
+  @include tablet {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+  }
+}
+
+// buttons
+//  maybe reduce properties so it works for more buttons
+@mixin primary-button {
+  height: 2.25rem;
+  background-color: $primary-mid;
+  color: $primary-light;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  border: none;
+
+  @include tablet {
+    height: 2.375rem;
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $background-dark;
+  }
+}
+
+@mixin cancel-button {
+  height: 2.25rem;
+  width: auto;
+  background-color: $background-light;
+  color: $secondary-dark;
+  border: 0.8rem solid $secondary-light;
+  border-radius: 1.25rem;
+  padding: 1rem;
+
+  @include tablet {
+    height: 2.4rem;
+    width: auto;
+  }
+
+  &:hover {
+    color: $primary-mid;
+    border: 0.8rem solid $primary-mid;
+  }
+}
+
+@mixin delete-button {
+  height: 2.25rem;
+  width: 50%;
+  background-color: $supporting-negative;
+  color: $primary-light;
+  border-radius: 1.25rem;
+  padding: 1rem;
+
+  @include tablet {
+    height: 2.4rem;
+    width: 6rem;
+  }
+
+  &:hover {
+    background-color: $background-dark;
+  }
+}
+
+@mixin edit-button {
+  border: none;
+  border-radius: 50%;
+  background-color: $primary-mid;
+  height: 2.25rem;
+  width: 2.25rem;
+
+  &:hover {
+    background-color: $background-dark;
+  }
+
+  @include tablet {
+    height: 2.375rem;
+    width: 2.375rem;
+    width: 5.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+// positioning
+@mixin flex($flex-direction, $justify-content, $align-items, $flex-wrap) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin flex-position($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-orientation($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+}
+
+@mixin flex-set($flex-direction, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
+
+@mixin flex-justify($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+}
+
+@mixin flex-align($align-items) {
+  display: flex;
+  align-items: $align-items;
+}
+
+@mixin flex-full($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// containers
+@mixin container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include tablet {
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+    flex-direction: row;
+  }
+
+  @include desktop {
+    margin: auto;
+    max-width: 80rem;
+  }
+}
+
+// searchbar
+@mixin searchbar {
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+
+  @include tablet {
+    width: 12rem;
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+    outline: none;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    padding: 1rem;
+    border: 1px solid $secondary-light;
+    outline: none;
+
+    &:focus {
+      border: 1px solid $primary-mid;
+    }
+
+    &::placeholder {
+      color: $secondary-dark;
+      font-family: "TitilliumWeb";
+    }
+  }
+
+  &__icon {
+    width: 1.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.4rem;
+  }
+}
+
+// media queries
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+//other
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin background-style {
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin table-title {
+  @include table-header;
+  padding-bottom: 0.3rem;
+
+  @include tablet {
+    display: none;
+  }
+}
