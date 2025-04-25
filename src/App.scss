@@ -1,0 +1,14 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
+
+main {
+  @include flex-position(center, center);
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  @include tablet {
+    overflow: auto;
+  }
+}

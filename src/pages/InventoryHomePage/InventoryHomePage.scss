@@ -1,0 +1,72 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.inventory {
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.25rem rgba($background-dark, 0.1);
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  transform: translateY(-4.5rem);
+
+  @include tablet {
+    transform: translateY(-5.5625rem);
+  }
+
+  @include desktop {
+    max-width: 76rem;
+  }
+
+  &__top {
+    @include container;
+    @include flex-full(column, space-between, flex-start);
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.0625rem solid $secondary-light;
+    gap: 1rem;
+
+    @include tablet {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 0;
+      height: 6rem;
+    }
+  }
+
+  &-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 5rem;
+
+    @include tablet {
+      width: 26rem;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9;
+  }
+
+  &__add-new {
+    width: 100%;
+    display: inline-block;
+    @include primary-button;
+    @include flex-position(center, center);
+
+    @include tablet {
+      width: 11rem;
+    }
+  }
+}
+
+.inventory-searchbar {
+  @include searchbar;
+}

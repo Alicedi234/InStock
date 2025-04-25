@@ -1,0 +1,14 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.footer {
+    width: 100%;
+    height: 8rem;
+    @include flex-position(center, center);
+    background-color: $background-light;
+
+    &__text {
+        color: $secondary-dark;
+        @include body-small;
+    }
+}

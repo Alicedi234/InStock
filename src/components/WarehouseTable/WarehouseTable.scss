@@ -1,0 +1,224 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.warehouse-table {
+  width: 100%;
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  @include flex-orientation(column);
+
+  &__block {
+    border-bottom: 0.0625rem solid $secondary-light;
+
+    @include tablet {
+      @include flex-set(row, space-between);
+      height: 6rem;
+    }
+
+    &:hover {
+      background-color: $background-light;
+    }
+  }
+
+  &__content {
+    @include flex-position(flex-start, baseline);
+    width: 100%;
+    gap: 2rem;
+    padding: 1rem 1rem;
+
+    @include tablet {
+      @include flex-position(space-between, center);
+      padding-right: 0rem;
+      padding-left: 2rem;
+    }
+  }
+
+  &__left {
+    width: 45%;
+    gap: 1rem;
+    position: relative;
+    @include flex-orientation(column);
+
+    @include tablet {
+      @include flex-set(row, space-between);
+      width: 40%;
+    }
+  }
+
+  &__right {
+    @include tablet {
+      @include flex-full(row, space-evenly, center);
+      width: 55%;
+    }
+
+    @include desktop {
+      width: 65%;
+    }
+  }
+
+  &__title {
+    @include table-title;
+
+    &--spacing {
+      padding-top: 1rem;
+
+      @include tablet {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+
+  &__info {
+    @include flex-orientation(column);
+
+    @include tablet {
+      align-items: center;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    color: $primary-mid;
+    @include flex-align(center);
+
+    @include desktop {
+      width: 12rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__arrow {
+    width: 1.15rem;
+  }
+
+  &__text {
+    @include body-small;
+
+    @include tablet {
+      width: 7rem;
+      @include body-medium;
+    }
+
+    &--contact {
+      @include tablet {
+        width: 10rem;
+      }
+
+      @include desktop {
+        margin-right: 5rem;
+      }
+    }
+
+    &--address {
+      @include desktop {
+        width: 20rem;
+      }
+    }
+  }
+
+  &__buttons {
+    @include container;
+    @include flex-position(space-between, baseline);
+    padding-bottom: 2rem;
+
+    @include tablet {
+      @include flex-position(flex-end, center);
+      gap: 1rem;
+      width: 6rem;
+      padding-bottom: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__warehouse {
+    @include tablet {
+      @include flex-align(center);
+    }
+  }
+
+  &__delete {
+    width: 1.5rem;
+    fill: $supporting-negative;
+  }
+
+  &__edit {
+    width: 1.5rem;
+    fill: $primary-mid;
+  }
+
+  &__link {
+    line-height: 0;
+  }
+}
+
+.warehouse-titles {
+  padding: 0rem 2rem 0rem 2rem;
+  background-color: $background-light;
+  height: 2.5rem;
+  @include flex-position(space-between, center);
+
+  &__left {
+    @include flex-set(row, space-between);
+    width: 45%;
+  }
+
+  &__right {
+    @include flex-set(row, space-between);
+    width: 55%;
+
+    @include tablet {
+      justify-content: space-evenly;
+    }
+
+    @include desktop {
+      width: 60%;
+    }
+  }
+
+  &__title {
+    @include table-title;
+    display: none;
+
+    @include tablet {
+      @include flex-align(center);
+      width: 7rem;
+      text-transform: uppercase;
+    }
+
+    &--actions {
+      @include tablet {
+        @include flex-justify(right);
+        width: 4.5rem;
+      }
+    }
+
+    &--contact {
+      @include tablet {
+        width: 10rem;
+
+        @include desktop {
+          margin-right: 5rem;
+        }
+      }
+    }
+
+    &--address {
+      @include tablet {
+        width: 9.5rem;
+      }
+
+      @include desktop {
+        width: 16rem;
+      }
+    }
+  }
+
+  &__sort {
+    @include size(1rem, 1rem);
+    fill: $secondary-dark;
+  }
+}

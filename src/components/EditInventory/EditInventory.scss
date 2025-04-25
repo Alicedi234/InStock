@@ -1,0 +1,264 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.inventory-form {
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.25rem rgba($background-dark, 0.1);
+  background-color: $primary-light;
+  border-radius: 0.25rem;
+  position: relative;
+  transform: translateY(-4.5rem);
+  margin-bottom: -55px;
+
+  @include desktop {
+    max-width: 1200px;
+  }
+
+  &__container1 {
+    @include flex(row, flex-start, flex-start, nowrap);
+    gap: 0.3125rem;
+    height: auto;
+    padding: 2rem 0;
+    padding-left: 1rem;
+    border-bottom: 0.0625rem solid $secondary-light;
+
+    @include tablet {
+      @include flex-full(row, flex-start, center);
+      padding: 1rem 1rem;
+    }
+
+    &__title {
+      @include tablet {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__container2 {
+    padding: 0 2rem 2rem 2rem;
+    @include flex(column, flex-start, stretch, wrap);
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+      padding: 0 2rem;
+      // padding-top: 1rem;
+      border-bottom: none;
+      min-height: 24rem;
+    }
+
+    &--top {
+      border-bottom: 1px solid $secondary-light;
+
+      @include tablet {
+        border-bottom: none;
+      }
+    }
+
+    &--no-border {
+      padding-top: 0rem;
+    }
+
+    &--bottom {
+      @include tablet {
+        border-left: 1px solid $secondary-light;
+      }
+    }
+
+    &--title {
+      padding-bottom: 16px;
+      padding-top: 1rem;
+
+      @include tablet {
+        padding-top: 0rem;
+      }
+    }
+
+    &--label {
+      padding-bottom: .5rem;
+      padding-top: 1rem;
+      font-weight: 600;
+    }
+
+    &--input {
+      width: 100%;
+      border-radius: 20px;
+      height: 36px;
+      border: 1px solid $secondary-light;
+      padding: 0 16px;
+      margin-bottom: 0.3rem;
+      outline: none;
+      appearance: none;
+      font-family: "TitilliumWeb";
+
+
+      &:focus {
+        border: 1px solid $primary-mid;
+        outline: none;
+      }
+    }
+
+    &::placeholder {
+      font-family: "TitilliumWeb";
+    }
+
+    &--input-description {
+      @extend .inventory-form__container2--input;
+      padding-top: 0.5rem;
+      font-family: "TitilliumWeb";
+      outline: none;
+      resize: none;
+    }
+
+    &--dropdown {
+      appearance: none;
+      position: relative;
+      padding-right: 30px;
+    }
+
+    &--status {
+      @include flex-full(row, flex-start, stretch);
+      gap: 10%;
+    }
+
+    &--radio {
+      margin-right: 8px;
+    }
+
+    &--radiotext {
+      color: $secondary-light;
+    }
+
+    &--radiotext-checked {
+      color: $primary-dark;
+    }
+  }
+
+  &__container4 {
+    background-color: $background-light;
+    height: 90px;
+    @include flex(row, center, center, nowrap);
+    padding-left: 1rem;
+
+    @include tablet {
+      margin-top: 1rem;
+      @include flex(row, flex-end, center, nowrap);
+      gap: 0;
+    }
+  }
+
+  &__button1 {
+    border: 1px solid $secondary-light;
+    border-radius: 20px;
+    padding: 0.5rem 0;
+    color: $secondary-dark;
+    background-color: #ffffff;
+    width: 100%;
+
+    &:hover {
+      color: $primary-mid;
+      border: 1px solid $primary-mid;
+    }
+
+    @include tablet {
+      width: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  &__button2 {
+    color: #ffffff;
+    background-color: $primary-mid;
+    border: 1px solid $secondary-light;
+    border-radius: 20px;
+    padding: 0.5rem 0;
+    margin-right: 16px;
+    width: 50%;
+
+    &:hover {
+      background-color: $background-dark;
+    }
+
+    @include tablet {
+      width: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  &__container3 {
+    @include tablet {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      @include flex(row, space-around, center, nowrap);
+    }
+  }
+
+  &__select {
+    position: relative;
+    width: 100%;
+
+    &:focus-within {
+      .inventory-form__dropdown {
+        fill: $primary-mid;
+      }
+    }
+  }
+
+  &__dropdown {
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    fill: $secondary-dark;
+    font-family: "TitilliumWeb";
+  }
+
+  &__link {
+    width: 50%;
+    line-height: 0;
+    margin-right: 1rem;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__required {
+    @include flex-position(flex-start, center);
+    color: $supporting-negative;
+    @include body-medium;
+    margin-bottom: 0.6rem;
+  }
+
+  &__error {
+    height: 1rem;
+    width: 1rem;
+    fill: $supporting-negative;
+    margin-right: 0.25rem;
+  }
+}
+
+#description {
+  height: 120px;
+}
+
+.inventory-form__container2--select-default {
+  color: $secondary-light;
+}
+
+.invalid {
+  border: 1px solid $supporting-negative;
+}

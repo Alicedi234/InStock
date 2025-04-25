@@ -1,0 +1,120 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+
+.modal {
+  padding-top: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: $primary-light;
+  @include flex-full(column, flex-start, center);
+
+  @include tablet {
+    width: 80vw;
+    height: 16.25rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70.5%);
+    border: 0.0625rem solid $primary-mid;
+    flex-direction: column;
+    border-radius: 0.25rem;
+  }
+
+  @include desktop {
+    width: 40rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &__exit {
+    align-self: flex-end;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 2rem;
+    padding-right: 1rem;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      padding-right: 0;
+    }
+  }
+
+  &__icon {
+    fill: $primary-dark;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  &__content {
+    @include container;
+    height: 90%;
+
+    @include tablet {
+      height: 60%;
+    }
+  }
+
+  &__heading {
+    padding-bottom: 1rem;
+  }
+
+  &__cta {
+    @include container;
+    width: 100%;
+    height: 10%;
+    @include flex-set(row, space-between);
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: flex-end;
+      height: 30%;
+    }
+  }
+
+  &__button {
+    border: none;
+    border-radius: 12px;
+    @include flex-position(center, center);
+    @include delete-button;
+
+    @include tablet {
+      @include delete-button;
+    }
+
+    &--cancel {
+      // @include cancel-button; // needs adjustments
+      background-color: $background-light;
+      color: $secondary-dark;
+      border: 0.1rem solid $secondary-light;
+
+      &:hover {
+        border: 0.1rem solid $primary-mid;
+        color: $primary-mid;
+        background-color: $background-light;
+      }
+    }
+
+    &--delete {
+      @include delete-button;
+    }
+  }
+}
+
+.closed {
+  display: none;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  position: fixed;
+  background-color: rgba($background-dark, 0.6);
+}
