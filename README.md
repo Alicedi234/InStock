@@ -1,2 +1,1 @@
-Group Project
-Server Side
+Clients side
